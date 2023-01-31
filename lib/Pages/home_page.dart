@@ -493,31 +493,43 @@ class _HomePageState extends State<HomePage> {
                       onTap: () async {
                         await _alterarItem(lista);
                       },
-                      child: Container(
+                      child: SizedBox(
                         width: MediaQuery.of(context).size.width,
-                        color: const Color.fromARGB(221, 241, 241, 241),
-                        child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width,
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        const Icon(Icons.emergency),
-                                        Text('Produto: ${lista.produto}'),
-                                      ],
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Card(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    ListTile(
+                                      leading: const Icon(Icons.album),
+                                      title: Text('Produto: ${lista.produto}'),
+                                      subtitle:
+                                          Text('Descricao: ${lista.descricao}'),
                                     ),
-                                    Row(
-                                      children: [
-                                        const Icon(Icons.description),
-                                        Text('Descricao: ${lista.descricao}'),
-                                      ],
-                                    ),
-                                    // const Divider(),
-                                  ]),
-                            )),
+                                    // Row(
+                                    //   mainAxisAlignment:
+                                    //       MainAxisAlignment.end,
+                                    //   children: <Widget>[
+                                    //     TextButton(
+                                    //       child: const Text('Excluir'),
+                                    //       onPressed: () {/* ... */},
+                                    //     ),
+                                    //     const SizedBox(width: 8),
+                                    //     TextButton(
+                                    //       child:
+                                    //           const Text('Atualiza item'),
+                                    //       onPressed: () {/* ... */},
+                                    //     ),
+                                    //     const SizedBox(width: 8),
+                                    //   ],
+                                    // ),
+                                  ],
+                                ),
+                              ),
+                              // const Divider(),
+                            ]),
                       ),
                     ),
                   );
